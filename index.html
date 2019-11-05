@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Первый сервер на Node JS</title>
+<!-- стили быстрого реагирования -->
+<link rel="stylesheet" href="app.css">
+<!-- скрипты сокетов, для связи с серверной частью  -->
+<script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+<h2>Хороший node js</h2>
+<button id="but01" class="button">Нажать эту кнопку</button><br>
+<t id="t001"></t><br>
+<!--<xmp> plain text </xmp>  -->
+<textarea class="texteditor" id="txtar">
+
+Раз
+	два
+		три
+
+</textarea><br>
+<input type="button" id="btnfnread" value="Прочитать файл: ">
+<input type="text" id="filenameread"> 
+<input type="button" id="btnfnwrite" value="Записать в файл: ">
+<input type="text" id="filenamewrite"><br>
+<input type="text" id="input" class="sendinput" autofocus>
+<input type="button" id="send" value="Send"><br>
+<t id="t002"></t><br>
+<!-- решить задание File2 -- 1000 задач по программированию Часть II Абрамян М.Э. 2004  -->
+<input type="button" id="btnfile2" value="File2">
+<label>N=</label><input type="number" id="inpn">
+<label>File name: </label><input type="text" id="inpfilename" value="file2.txt"><br>
+<!-- решить задание File3 -- 1000 задач по программированию Часть II Абрамян М.Э. 2004  -->
+<input type="button" id="btnfile3" value="File3">
+<label>A=</label> <input type="number" id="inpa">
+<label> B=</label><input type="number" id="inpb">
+<label> File name:</label><input type="text" id="inpfilename3" value="file3.json">
+<!-- скрипты быстрого реагирования -->
+<script src="app.js"></script>
+</body>
+
+</html>
