@@ -64,7 +64,7 @@ server.on('request',function(request,response){
 	}
 });
 
-server.listen(port,host,function(){
+server.listen(port,host,function(){ 
 	console.log('Сервер работает. Слушает хост:',host,' ,  порт:',port)
 });
 
@@ -80,7 +80,7 @@ ios.sockets.on('connection', function (socket) {
 	socket.on("fnServer",function(data3){
 		console.log("Filename: "+data3);
 		try {
-			var buf = fs.readFileSync(data3,"utf8");
+			var buf = fs.readFileSync(__dirname+'/files/'+data3,"utf8");
 			err="";
 		}catch{
 			err = "No such file.";
@@ -91,7 +91,7 @@ ios.sockets.on('connection', function (socket) {
 	socket.on("wrServer",function(data4){
 		console.log("Write file "+data4.filename);
 		try{
-			fs.writeFileSync(data4.filename,data4.data);
+			fs.writeFileSync(__dirname+'/files/'+data4.filename,data4.data);
 			err="";
 		}catch{
 			err = "Can't write file.";			
@@ -108,7 +108,7 @@ ios.sockets.on('connection', function (socket) {
 				nex += 2 ;
 				string5 += " "+String(nex); 
 			}
-			fs.writeFileSync(data5.filename,string5);
+			fs.writeFileSync(__dirname+'/files/'+data5.filename,string5);
 			err="";
 		}catch{
 			err = "Can't write file.";			
@@ -126,7 +126,7 @@ ios.sockets.on('connection', function (socket) {
 				x += data6.b;
 			}
 			//преобразовать в JSON и записать в файл на сервере
-			fs.writeFileSync(data6.filename, JSON.stringify(buf));
+			fs.writeFileSync(__dirname+'/files/'+data6.filename, JSON.stringify(buf));
 			err="";
 		}catch{
 			err="Can't write file.";
