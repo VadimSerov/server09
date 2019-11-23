@@ -59,9 +59,15 @@
 	btnfile2.onclick = function(){
 		socket.emit("file2Server",{"n":Number(inpn.value),"filename":inpfilename.value});
 	}
-	//задача file2 -- 1000 задач по программированию Часть II Абрамян М.Э. 2004 --
+	//задача file3 -- 1000 задач по программированию Часть II Абрамян М.Э. 2004 --
 	//решение на стороне сервера, бинарные файлы не использовать, 
 	//обязательно использовать парсинг в JSON 
 	btnfile3.onclick = function(){
 		socket.emit("file3Server",{"a":Number(inpa.value),"b":Number(inpb.value),"filename":inpfilename3.value});
+	}
+	//задача file6 -- 1000 задач по программированию Часть II Абрамян М.Э. 2004 --
+	//решение на стороне сервера, бинарные файлы не использовать, 
+	//обязательно использовать парсинг в JSON 
+	btnfile6.onclick = function(){
+		socket.emit("file6Server",{"k":Number(inpk.value),"filename":inpfilename6.value});
 	}

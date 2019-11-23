@@ -35,6 +35,10 @@ js='const but01=document.getElementById("but01");'+
 	'but01.onclick=function(){'+
 	'alert("Жесть")}';
 
+function randint(a,b){
+	return Math.floor( a+Math.random()*b );
+}
+
 server.on('request',function(request,response){
 	//console.log(request.url);
 	if(request.url=='/'){
@@ -128,6 +132,23 @@ ios.sockets.on('connection', function (socket) {
 			//преобразовать в JSON и записать в файл на сервере
 			fs.writeFileSync(__dirname+'/files/'+data6.filename, JSON.stringify(buf));
 			err="";
+		}catch{
+			err="Can't write file.";
+		}
+	});
+	//задача file3 -- 1000 задач по программированию Часть II Абрамян М.Э. 2004 --
+	socket.on("file6Server",function(data7){
+		console.log("Write file "+data7.filename);
+		try{
+			var buf = [];
+			var n = randint(0,30);
+			for(let i=0;i<n;i++){
+				buf.push(randint(0,1000));
+			}
+			//преобразовать в JSON и записать в файл на сервере
+			fs.writeFileSync(__dirname+'/files/'+data7.filename, JSON.stringify(buf));
+			err="";
+			socket.emit('eventClient', { "data": 'Элемент номер '+String(data7.k)+' равен '+String(buf[data7.k]) });
 		}catch{
 			err="Can't write file.";
 		}
